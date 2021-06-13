@@ -30,6 +30,6 @@
 
     -actions-
 
-    print[msg:&String] 
+    print[msg:String] 
 
 ##
