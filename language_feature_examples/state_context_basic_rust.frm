@@ -4,6 +4,11 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 ```
+--- For Rust language.
+
+--- This spec shows how to use transition enter arguments, 
+--- state arguments and state variables. 
+
 #BasicStateContext
 
     -interface-
