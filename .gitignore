@@ -1,0 +1,13 @@
+# generated documentation
+*.png
+
+# generated code files
+
+
+*.cpp
+*.cs
+*.gd 
+*.java
+*.js
+*.py
+*.rs
