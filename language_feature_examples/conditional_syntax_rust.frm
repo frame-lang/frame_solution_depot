@@ -6,7 +6,7 @@
 #![allow(unused_variables)]
 ```
 --- Rust Playground
---- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=8b8198c4a74a5a378d899bf55cbf74b9
+--- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=2cf0a947f195af2c9febf8abb5e44214
 
 #ConditionalSyntax
 
@@ -95,10 +95,5 @@
     fooNotTrue {`self.print(&"Foo Not True".to_string());`}
     fooTrue {`self.print(&"Foo True".to_string());`}
 
-    -domain-
-
-    var foo:bool = true
-    var i:i32 = 0
-    var f:f32 = 0.0
 
 ##
