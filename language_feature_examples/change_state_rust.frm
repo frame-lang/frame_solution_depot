@@ -4,9 +4,15 @@
 #![allow(unused_mut)]
 #![allow(dead_code)]
 #![allow(unused_variables)]
+#![allow(unused_parens)]
+#![allow(unused_imports)]
+
 ```
---- see playground example:
---- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=b4e47264cf8f97c292deb9a709f119dc
+
+--- This spec demonstrates the differences between transitions and change state operators. (Rust version)
+
+--- see Rust Playground:
+--- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=54fd31121b1f102916405b0e0d129877
 
 #ChangingState
 
