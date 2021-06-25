@@ -1,3 +1,12 @@
+--- A Frame solution for debouncing a switch controller on 
+--- an Arduino. This is based on an excellent YouTube video.
+
+--- see talk video: https://www.youtube.com/watch?v=v8KXa5uRavg
+--- see Frame solution: https://framepiler.frame-lang.org/example/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZnJhbWUtbGFuZy81Y2NlYzRhNjdmOTVlNTlkNDNmNDZkMGFkNjliZTUyZQ==
+--- get Frame: http://framepiler.frame-lang.org
+--- more Frame solutions: https://github.com/frame-lang/frame_solution_depot
+
+
 #SwitchDebouncer
 
     -interface-
