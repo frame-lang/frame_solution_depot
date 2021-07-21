@@ -15,6 +15,7 @@
 
     -interface-
 
+    event_assignment
     event_parameter_assignment [p1:String]
     return_assignment:String
     return_expression:String
@@ -24,7 +25,7 @@
     $S0
 
         |event_assignment|
-            var frameEvent:FrameEvent = @
+            var frameEvent:`&mut FrameEvent` = @
             frameEventParm(frameEvent) ^
 
         |event_parameter_assignment|[p1:String]
@@ -50,8 +51,8 @@
     -actions-
 
 
-    frameEventParm[evt:FrameEvent] {`
-        println!("{}", &format!("{}",evt.message));
+    frameEventParm[evt:`&mut FrameEvent`] {`
+        println!("{}", &format!("{}",evt.message.to_string()));
     `}
 
     print[msg:&String] {`
