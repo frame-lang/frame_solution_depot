@@ -1,4 +1,4 @@
-```
+ ```
 #![allow(non_snake_case)]
 #![allow(non_camel_case_types)]
 #![allow(unused_mut)]
@@ -8,8 +8,8 @@
 #![allow(unused_imports)]
 
 ```
-
---- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=f6d97135fa42eb28684e57879f0fd190
+--- Rust Playground
+--- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=48ff8276f6d575e0c4578332bd4dbe01
 
 #FrameEventSyntax
 
