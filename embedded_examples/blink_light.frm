@@ -13,9 +13,9 @@
             reset ? ->> "reset" $Reset ^ :: 
             digitalWrite(LED_BUILTIN  !digitalRead(LED_BUILTIN))
             #.timeLastTransition = millis()
-            ->> $WaitDisplay ^
+            ->> $LedDelay ^
 
-    $WaitDisplay
+    $LedDelay
         |tick|[reset:bool]
             reset ? ->>  "reset" $Reset ^ :: 
             millis() - timeLastTransition >= LED_DELAY ?
@@ -30,5 +30,5 @@
     -domain-
 
     var timeLastTransition:uint32_t = 0
-
+    const LED_DELAY:uint32_t = 1000
 ##

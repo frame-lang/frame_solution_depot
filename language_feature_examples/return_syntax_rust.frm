@@ -15,6 +15,7 @@
 
     -machine-
 
+
     $S0
         |returnAssignment| @^ = (42) ^
         |returnExpression| ^(42)
