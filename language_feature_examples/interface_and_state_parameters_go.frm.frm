@@ -14,7 +14,7 @@
             -> $S1(x) ^
 
     $S1[msg:string]
-        |>| print(&msg) ^
+        |>| print(msg) ^
 
     -actions-
 
