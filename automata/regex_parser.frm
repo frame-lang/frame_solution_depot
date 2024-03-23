@@ -1,28 +1,44 @@
 // Regex parser for single alpha-numeric chars using 
 // the '*', '+' and '?' operators.
+// Validate against https://regex101.com/
 
 fn main {
 
 
     var rep:# = #RegExParser()
-    // "xabxcdabc"
-    // ab, ab
-    // abcde, abcde
-    // ab*,abc
-    // print(rep.run("ab*d","abbc"))
- //   print(rep.run("ab*d","abbc")) // False
- //   print(rep.run("ab+c","abbc")) // True
- //   print(rep.run("ab?c","ac")) // True
- //   print(rep.run("ab?c","abc")) // True
-    print("(regex,string) -> match")
+    print("(regex,string) -> match?")
+    print("(_,_) -> " + str(rep.run("",""))) // True
+    print("(_,a) -> " + str(rep.run("","a"))) // True
+    print("(a,_) -> " + str(rep.run("a",""))) // True
     print("(a,a) -> " + str(rep.run("a","a"))) // True
+    print("(a,b) -> " + str(rep.run("a","b"))) // False
+    print("(ab,abcde) -> " + str(rep.run("ab","abcde"))) // True
+    print("(cd,abcde) -> " + str(rep.run("cd","abcde"))) // True
+    print("(de,abcde) -> " + str(rep.run("de","abcde"))) // True
+    print("(ce,abcde) -> " + str(rep.run("ce","abcde"))) // False
+    print("(abcde,abcde) -> " + str(rep.run("abcde","abcde"))) // True
     print("(ab?c,ac) -> " + str(rep.run("ab?c","ac"))) // True
-    print("(ab?c,ac) -> " + str(rep.run("ab?c","ac"))) // True
+    print("(ab?c,abc) -> " + str(rep.run("ab?c","abc"))) // True
+    print("(ab?c,ae) -> " + str(rep.run("ab?c","ae"))) // False
     print("(ab?c,abbc) -> " + str(rep.run("ab?c","abbc"))) // False
     print("(ab?c+,abb) -> " + str(rep.run("ab?c+","abb"))) // False
-    print("(ab?c+,abbcc) -> " + str(rep.run("ab?c+","abcc"))) // True
-
+    print("(ab?c+,abcc) -> " + str(rep.run("ab?c+","abcc"))) // True
+    print("(ab?c+,abbcc) -> " + str(rep.run("ab?c+","abbcc"))) // False
+    print("(a*b?c+,abcc) -> " + str(rep.run("a*b?c+","abcc"))) // True
+    print("(a*b?c+,a) -> " + str(rep.run("a*b?c+","a"))) // True
+    print("(a*b?c+,b) -> " + str(rep.run("a*b?c+","b"))) // True
+    print("(a*b?c+,c) -> " + str(rep.run("a*b?c+","c"))) // True
+    print("(a*b?c+,ab) -> " + str(rep.run("a*b?c+","ab"))) // True
+    print("(a*b?c+,bc) -> " + str(rep.run("a*b?c+","bc"))) // True
+    print("(a*b?c+,cc) -> " + str(rep.run("a*b?c+","cc"))) // True
+    print("(a*b?c+,ac) -> " + str(rep.run("a*b?c+","ac"))) // True
+    print("(a*b?c+,axc) -> " + str(rep.run("a*b?c+","axc"))) // True
+    print("(a*b?c+,axcd) -> " + str(rep.run("a*b?c+","axcd"))) // True
+    print("(a*b?c+,cx) -> " + str(rep.run("a*b?c+","cx"))) // True
+    print("(a*b?c+,ax) -> " + str(rep.run("a*b?c+","ax"))) // False
+    print("(a*b?c+,bx) -> " + str(rep.run("a*b?c+","bx"))) // False
 }
+
 
 #RegExParser
 
