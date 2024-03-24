@@ -54,6 +54,8 @@ fn main {
     print("(1*23,23) -> " + str(rep.run("1*23","23"))) // True
     print("(1*23,1123) -> " + str(rep.run("1*23","1123"))) // True
     print("(1*23,11223) -> " + str(rep.run("1*23","11223"))) // False
+    print("(a1*b+23*c,11223) -> " + str(rep.run("a1*b+23*c","11223"))) // False
+    print("(a1*b+23*c,ab23c) -> " + str(rep.run("a1*b+23*c","ab23c"))) // True
 
 }
 
@@ -291,7 +293,7 @@ fn main {
     $Error  
 
         |>| 
-        
+
             print("Error") ^
 
 
