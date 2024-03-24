@@ -415,22 +415,15 @@ fn main {
         str = nil
         str_len = 0
         str_pos = 0
-        current_element = nil
-        next_re_element = ""
-        match = false 
     }
 
     -domain-
 
-    var _debug = false 
     var regex = nil 
     var regex_len = 0
     var regex_pos = 0
     var str = nil
     var str_len = 0
     var str_pos = 0
-    var current_element = nil
-    var next_re_element = ""
-    var match = false 
                 
 ##
