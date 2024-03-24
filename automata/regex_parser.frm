@@ -12,9 +12,16 @@
 //*
 //*******************************************************************/
 
-// *Very* simple regex parser for single alpha-numeric chars using 
-// the '*', '+' and '?' operators.
-// Validate against https://regex101.com/
+//-------------------------------------------------------------------------
+//
+// A *very* simple regex parser in Frame for single alpha-numeric chars 
+// using the '*', '+' and '?' operators.
+// 
+// Frame docs: https://docs.frame-lang.org/en/latest/
+// Validate regex against https://regex101.com/
+//
+//-------------------------------------------------------------------------
+
 
 fn main {
 
@@ -56,9 +63,9 @@ fn main {
     print("(1*23,11223) -> " + str(rep.run("1*23","11223"))) // False
     print("(a1*b+23*c,11223) -> " + str(rep.run("a1*b+23*c","11223"))) // False
     print("(a1*b+23*c,ab23c) -> " + str(rep.run("a1*b+23*c","ab23c"))) // True
-
+    print("(-,a) -> " + str(rep.run("-","a"))) // False
+    print("(a,-) -> " + str(rep.run("a","-"))) // False
 }
-
 
 //-------------------------------------------------------------------------
 //  #RegExParser is a parser for a very small subset of regex operators.
@@ -287,15 +294,11 @@ fn main {
     //-------------------------------------------------------------------------
     // $Error
     // 
-    // An invalid char type was found. Terminate run. 
+    // An invalid *regex* char was found - must be alpha numeric chars in regex.
+    // (String chars, however, can be anything so not an error) Terminate run. 
     //-------------------------------------------------------------------------
 
     $Error  
-
-        |>| 
-
-            print("Error") ^
-
 
     -actions-
 
@@ -338,7 +341,7 @@ fn main {
     // One char lookahead for regex. 
     //-------------------------------------------------------------------------
 
-    peekRegexChar [regex_char]: bool {
+    peekRegexChar [regex_char] : bool {
         isEndOfRegex() ? ^(false) :|
         ^(regex[regex_pos] == regex_char)
     }
