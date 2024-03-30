@@ -85,7 +85,7 @@ fn main {
     // @param str   the string to search for regex match
     // @return bool true if pattern found in string 
 
-    run [regex, str] : bool (false)
+    run [regex, str] : bool ^(false)
 
     -machine-
     
