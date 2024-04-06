@@ -27,10 +27,11 @@
 fn main {
 
     var rep:# = #RegExParser()
+    print("Validate regex against https://regex101.com/")
     print("(regex,string) -> match?")
     print("(_,_) -> " + str(rep.run("",""))) // True
     print("(_,a) -> " + str(rep.run("","a"))) // True
-    print("(a,_) -> " + str(rep.run("a",""))) // True
+    print("(a,_) -> " + str(rep.run("a",""))) // False
     print("(a,a) -> " + str(rep.run("a","a"))) // True
     print("(a,b) -> " + str(rep.run("a","b"))) // False
     print("(ab,abcde) -> " + str(rep.run("ab","abcde"))) // True
@@ -93,7 +94,10 @@ fn main {
     // $Start
     // 
     // Handle the "run" message and reset internal state, then initialize 
-    // regex pattern and string to search in.
+    // regex pattern and string to search in. Note that this is the 
+    // *only* state that a run can be started. All other states are 
+    // part of the analysis phase and will just return the default "false"
+    // from the interface. 
     // 
     // Transition for processing in $StartMatchElement state.   
     //-------------------------------------------------------------------------
@@ -131,7 +135,8 @@ fn main {
             isEndOfRegex()  ? -> $Start ^(true)  :>
 
             // If the string has been fully traversed, there is no match
-            // so continue run.
+            // so go to $Start and wait for next run.
+            // Otherwise find the next regex element. 
 
             isEndOfStr()    ? -> $Start ^(false) :> 
                             : -> $FindNextRegexElement :| ^
