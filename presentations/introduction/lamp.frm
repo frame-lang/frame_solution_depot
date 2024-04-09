@@ -10,6 +10,7 @@
 //* 2024-Apr-08	 mark	            Created 
 //*******************************************************************/
 
+// See https://docs.frame-lang.org/en/latest/getting_started/index.html
 
 fn main {
     var lamp:# = #Lamp()
@@ -21,9 +22,9 @@ fn main {
 
     -interface-
 
-    turnOn
-    turnOff
-    
+    turnOn      // Interface method that sends 'turnOn' event to the machine
+    turnOff     // Interface method that sends 'turnOff' event to the machine
+
     -machine-
 
     $Off                                // $Off state
