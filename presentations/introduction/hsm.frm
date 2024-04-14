@@ -1,7 +1,22 @@
+//*******************************************************************
+//* Author            | Mark Truluck (mark@frame-lang.org)
+//* Copyright         | 2024 MIT License
+//* File Name         | lamp.frm
+//* Description       | Statechart features demo. 
+//*                    
+//* Revision History  :
+//* Date		 Author 			Comments
+//* ------------------------------------------------------------------
+//* 2024-Apr-13	 mark	            Created 
+//*******************************************************************/
+
+// This program demonstrates the use of enter/exit events, 
+// hierarchical states and the history mechanism. 
+
 fn main {
     var hsm:# = #HSM()
 
-    hsm.start()
+    hsm.run()
     hsm.pause()
     hsm.unpause()
     hsm.stop()
@@ -11,20 +26,23 @@ fn main {
 
     -interface-
 
-    start 
+    run 
     stop 
     pause 
     unpause 
 
     -machine-
 
-    $Start 
-        |>| print("Enter $Start") ^
-        |start| -> $Working ^
+    $Begin 
+        |>| print("Enter $Begin") ^
+        |<| print("Exit $Begin") ^  
+
+        |run| -> $Working ^
 
     $Working => $Parent
         |>| print("Enter $Working") ^
         |<| print("Exit $Working") ^  
+
         |pause| $$[+] -> $Paused ^
 
     $Parent 
@@ -35,6 +53,7 @@ fn main {
     $Paused     
         |>| print("Enter $Paused") ^
         |<| print("Exit $Paused") ^
+        
         |unpause| -> $$[-] ^
 
     $End
