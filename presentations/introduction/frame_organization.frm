@@ -8,21 +8,22 @@
 //* Date		 Author 			Comments
 //* ------------------------------------------------------------------
 //* 2024-Apr-17	 mark	            Created 
+//* 2024-Apr-19	 mark	            Updated name
 //*******************************************************************/
 
 // This program demonstrates the use of enter/exit events, 
 // hierarchical states and the history mechanism. 
 
 fn main {
-    var fso:# = #FrameSpecOrganization()
+    var fc:# = #FrameController()
     
     loop var x = 0; x < 5; x = x + 1 {
-        fso.start()
-        fso.stop()
+        fc.start()
+        fc.stop()
     }
 }
 
-#FrameSpecOrganization
+#FrameController
 
     -interface-
 
