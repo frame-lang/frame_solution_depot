@@ -1,7 +1,7 @@
 //*******************************************************************
 //* Author            | Mark Truluck (mark@frame-lang.org)
 //* Copyright         | 2024 MIT License
-//* File Name         | frame_organization.frm
+//* File Name         | frame_system_organization.frm
 //* Description       | Simple demo of starting/stopping a controller. 
 //*                    
 //* Revision History  :
@@ -9,13 +9,12 @@
 //* ------------------------------------------------------------------
 //* 2024-Apr-17	 mark	            Created 
 //* 2024-Apr-19	 mark	            Updated name
+//* 2024-Apr-27  mark               Updated name
 //*******************************************************************/
 
-// This program demonstrates the use of enter/exit events, 
-// hierarchical states and the history mechanism. 
 
 fn main {
-    var fc:# = #FrameController()
+    var fc:# = #FrameSystem()
     
     loop var x = 0; x < 5; x = x + 1 {
         fc.start()
@@ -23,7 +22,7 @@ fn main {
     }
 }
 
-#FrameController
+#FrameSystem
 
     -interface-
 
@@ -33,16 +32,17 @@ fn main {
     -machine-
 
     $Stopped
-        |start|
-        	-> $Running ^
+        |start|                              // 'start' message selector
+           log("Started")                    // call log() action
+        	-> $Running ^                    // transition to $Running state
 
     $Running
-        |>|	
-            run_count = run_count + 1
-            log("Run count = " ) ^
+        |>|	                                 // 'enter' message selector
+            run_count = run_count + 1        // increment run count domain var
+            log("Run count = " ) ^           // call log() action
 
-        |stop|
-            -> $Stopped ^
+        |stop|                               // 'stop' message selector
+            -> $Stopped ^                    // transition to $Stopped state
 
     -actions-
 
