@@ -13,6 +13,8 @@
 // This program demonstrates the use of enter/exit events, 
 // hierarchical states and the history mechanism. 
 
+// See https://docs.frame-lang.org/en/latest/intermediate_frame/hsm.html
+
 fn main {
     var hsm:# = #HSM()
 
