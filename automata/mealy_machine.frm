@@ -1,4 +1,23 @@
-// https://www.geeksforgeeks.org/mealy-and-moore-machines-in-toc/
+//*******************************************************************
+//* Author            | Mark Truluck (mark@frame-lang.org)
+//* Copyright         | 2024 MIT License
+//* File Name         | mealy_machine.frm
+//* Description       | Example of a Mealy FSM.
+//*                    
+//* Revision History  :
+//* Date		 Author 			Comments
+//* ------------------------------------------------------------------
+//* 2024-Mar-30	 mark	            Created 
+//*******************************************************************/
+
+//-------------------------------------------------------------------------
+//
+// A simple example of a Mealy finite state machine.
+// See https://www.geeksforgeeks.org/mealy-and-moore-machines-in-toc/
+// 
+// Frame docs: https://docs.frame-lang.org/en/latest/
+//
+//-------------------------------------------------------------------------
 
 fn main {
 
