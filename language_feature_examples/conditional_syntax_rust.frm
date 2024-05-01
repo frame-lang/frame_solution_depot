@@ -1,18 +1,10 @@
-```
-#![allow(non_snake_case)]
-#![allow(non_camel_case_types)]
-#![allow(unused_mut)]
-#![allow(dead_code)]
-#![allow(unused_variables)]
-```
---- Rust Playground
---- https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=2cf0a947f195af2c9febf8abb5e44214
+
 
 #ConditionalSyntax
 
     -interface-
 
-    start @(|>>|)
+    start 
     next
     doBoolTests[b:bool]
     doBasicStringTests[name:String]
@@ -24,46 +16,46 @@
     -machine-
 
     $Start
-        |>>|
-            print(&"starting...")
+        |start|
+            print("starting...")
             ->  $BooleanConditionals ^
 
     $BooleanConditionals
         |>| print(&"enter $BooleanConditionals") ^
         |<| print(&"exit $BooleanConditionals") ^
         |doBoolTests|[b:bool]
-            b ?  print(&"was true") : print(&"was false") ::
-            b ?! print(&"was false") : print(&"was true") :: ^
+            b ?  print(&"was true") : print(&"was false") :|
+            b ?! print(&"was false") : print(&"was true") :| ^
         |next| -> $StringConditionals ^
 
     $StringConditionals
         |doBasicStringTests|[name:String]
             name ?~
-                /Elizabeth/ hiElizabeth()   :>
-                /Robert/    hiRobert()      :
-                            whoAreYou()     :: ^
+                ~/Elizabeth/ hiElizabeth()   :>
+                ~/Robert/    hiRobert()      :
+                            whoAreYou()     :| ^
 
         |doAdvancedStringTests|[name:String]
             name ?~
-                /Elizabeth|Beth/ hiElizabeth()   :>
-                /Robert|Bob/     hiRobert()      :
-                                 whoAreYou()     :: ^
+                ~/Elizabeth|Beth/ hiElizabeth()   :>
+                ~/Robert|Bob/     hiRobert()      :
+                                 whoAreYou()     :| ^
 
          |next| -> $NumberConditionals ^
 
      $NumberConditionals
         |doIntTests|[i:i32]
             i ?#
-                /1/ print(&"It's a 1")   :>
-                /2/ print(&"It's a 2")   :
-                    print(&"It's a lot") ::
+                #/1/ print(&"It's a 1")   :>
+                #/2/ print(&"It's a 2")   :
+                    print(&"It's a lot") :|
             ^
 
         |doFloatTests|[f:f32]
             f ?#
-                /1.0|2.0/       print(&"It's a 1.0 or 2.0")  :>
-                /101.1|100.1/   print(&"It's over 100.0 a bit")  :
-                                print(&"It's a different number")     ::
+                #/1.0|2.0/       print(&"It's a 1.0 or 2.0")  :>
+                #/101.1|100.1/   print(&"It's over 100.0 a bit")  :
+                                print(&"It's a different number")     :|
             ^
          |next| -> $ConditionalTransitions ^
 
@@ -73,7 +65,7 @@
                 -> "true path" $True
             :
                 -> "false path" $False
-            :: ^
+            :| ^
 
     $True
         |>| print(&"It's true. Stopping now.") ^
@@ -83,7 +75,7 @@
 
     -actions-
 
-    name :String {`String::from("bob")`}
+    name :String {`String:|from("bob")`}
     foo :bool {`true`}
     print[msg:&String] {`
         println!("{}", &format!("{}",msg));
