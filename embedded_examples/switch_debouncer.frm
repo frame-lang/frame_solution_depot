@@ -1,11 +1,31 @@
---- A Frame solution for debouncing a switch controller on 
---- an Arduino. This is based on an excellent YouTube video.
+//*******************************************************************
+//* Author            | Mark Truluck (mark@frame-lang.org)
+//* Copyright         | 2024 MIT License
+//* File Name         | blink_light.frm
+//* Description       | Switch debouncer. 
+//*                    
+//* Revision History  :
+//* Date		 Author 			Comments
+//* ////////////////////////////////////////////
+//* 2024-May-02  mark               Created
+//*******************************************************************/
 
---- see talk video: https://www.youtube.com/watch?v=v8KXa5uRavg
---- see Frame solution: https://framepiler.frame-lang.org/example/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZnJhbWUtbGFuZy81Y2NlYzRhNjdmOTVlNTlkNDNmNDZkMGFkNjliZTUyZQ==
---- get Frame: http://framepiler.frame-lang.org
---- more Frame solutions: https://github.com/frame-lang/frame_solution_depot
 
+// A Frame solution for debouncing a switch controller on 
+// an Arduino. This is based on an excellent YouTube video.
+
+// see talk video: https://www.youtube.com/watch?v=v8KXa5uRavg
+// see Frame solution: https://playground.frame-lang.org/example/aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZnJhbWUtbGFuZy81Y2NlYzRhNjdmOTVlNTlkNDNmNDZkMGFkNjliZTUyZQ==
+// see Frame docs: http://docs.frame-lang.org
+// more Frame solutions: https://github.com/frame-lang/frame_solution_depot
+
+fn main {
+    var switch_debouncer:# = #SwitchDebouncer()
+
+    loop {
+       switch_debouncer.tick()
+    }
+}
 
 #SwitchDebouncer
 
@@ -23,7 +43,7 @@
     
     $Wait
         |tick|
-            isLow() ? -> "Is Low" $Arming :: ^
+            isLow() ? -> "Is Low" $Arming :| ^
 
     $Arming
         |>| 
@@ -34,12 +54,12 @@
     $Armed
         |tick|
             isHigh() ? -> "is high" $Reset ^ :>
-            isPastBounceDelay() ? -> "past bounce delay"  $Drawn ^ :: ^
+            isPastBounceDelay() ? -> "past bounce delay"  $Drawn ^ :| ^
 
     $Drawn
         |tick|
             isHigh() ? -> "is high" $Triggered ^ :>
-            isPastHoldDelay() ? -> "past hold delay" $Hold :: ^
+            isPastHoldDelay() ? -> "past hold delay" $Hold :| ^
 
     $Triggered
         |>|
@@ -56,6 +76,27 @@
     $LowWait
         |>| print("Enter $LowWait") ^   
         |<| print("Exit $LowWait") ^  
-        |tick| isHigh() ? -> "is high" $Reset :: ^     
+        |tick| isHigh() ? -> "is high" $Reset :| ^    
 
+    -actions-
+
+    isLow {
+        // TODO
+    }
+
+    isHigh {
+        // TODO
+    }
+
+    isPastBounceDelay {
+        // TODO
+    }
+
+    isPastHoldDelay {
+        // TODO
+    }
+
+    recordStartTime {
+        // TODO
+    }
 ##

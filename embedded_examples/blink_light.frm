@@ -1,4 +1,16 @@
---- https://arduinoplusplus.wordpress.com/2019/07/06/finite-state-machine-programming-basics-part-1/
+//*******************************************************************
+//* Author            | Mark Truluck (mark@frame-lang.org)
+//* Copyright         | 2024 MIT License
+//* File Name         | blink_light.frm
+//* Description       | Simple blinking light controller. 
+//*                    
+//* Revision History  :
+//* Date		 Author 			Comments
+//* ------------------------------------------------------------------
+//* 2024-May-02  mark               Created
+//*******************************************************************/
+
+// Video: https://arduinoplusplus.wordpress.com/2019/07/06/finite-state-machine-programming-basics-part-1/
 
 #Blink
 
@@ -10,21 +22,21 @@
 
     $LedToggle
         |tick|[reset:bool]
-            reset ? ->> "reset" $Reset ^ :: 
-            digitalWrite(LED_BUILTIN  !digitalRead(LED_BUILTIN))
+            reset ? -> "reset" $Reset ^ :| 
+            digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN))
             #.timeLastTransition = millis()
-            ->> $LedDelay ^
+            -> $LedDelay ^
 
     $LedDelay
         |tick|[reset:bool]
-            reset ? ->>  "reset" $Reset ^ :: 
+            reset ? ->  "reset" $Reset ^ :| 
             millis() - timeLastTransition >= LED_DELAY ?
-                ->> "timeout" $LedToggle ^
-            :: ^
+                -> "timeout" $LedToggle ^
+            :| ^
     $Reset 
         |>|
-            digitalWrite(LED_BUILTIN LOW)
-            ->> $LedToggle ^
+            digitalWrite(LED_BUILTIN, LOW)
+            -> $LedToggle ^
 
 
     -domain-
