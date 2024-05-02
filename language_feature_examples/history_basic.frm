@@ -1,18 +1,15 @@
---- v0.4.1 syntax
+
 
 #HistoryBasic
 
     -interface-
 
-    start @(|>>|)
     switchState
     gotoDeadEnd
     back
 
     -machine-
 
-    $Start
-        |>>| -> $S0 ^
 
     $S0
         |>| print("Enter S0") ^

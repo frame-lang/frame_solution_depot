@@ -3,15 +3,18 @@
 
     -interface-
 
-    Event_assignment @(|event_assignment|)
+    Event_assignment 
     Event_parameter_assignment [p1:string]
-    Return_assignment:string @(|return_assignment|)
-    Return_expression:string @(|return_expression|)
+
+    assign_event [x,y]
 
     -machine-
 
     $S0
 
+        |assign_event| [x,y] 
+            print_event(@) 
+            ^
         |event_assignment|
             var frameEvent:`*framelang.FrameEvent` = @
             frameEventParm(frameEvent)
@@ -33,20 +36,14 @@
             print(msg)
             ^
 
-        |return_assignment|:string
-            @^ = @||
-            print(@^)
-            ^
 
-        |return_expression|:string
-            @^ = "3"
-            var x:string = @^
-            print(@^)
-            ^(@||)
 
     -actions-
 
-    frameEventParm[evt:`*framelang.FrameEvent`]
-    print[msg:string]
-    print_bool[b:bool]
+    print_event [@] {
+        print(@||) 
+        print(@[x])
+        print(@[y])
+    }
+
 ##
