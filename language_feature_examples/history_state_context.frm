@@ -1,18 +1,14 @@
---- v0.4.1 syntax
+
 
 #HistoryStateContext
 
     -interface-
 
-    start @(|>>|)
     switchState
     gotoDeadEnd
     back
 
     -machine-
-
-    $Start
-        |>>| -> $S0 ^
 
     $S0
         var enterMsg:String = "Enter S0"

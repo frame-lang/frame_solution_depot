@@ -2,11 +2,11 @@
 
     -interface-
 
-    echo[msg:String]:String 
+    echo[msg:String] : String 
 
     -machine-
 
     $WhatSay 
-        |echo|[msg:String]
+        |echo| [msg:String] : String
             ^(msg)
 ##

@@ -2,13 +2,9 @@
 
     -interface-
 
-    start @(|>>|)
     next
 
     -machine-
-
-    $Start
-        |>>| -> $Waiting ^
 
     $Waiting
         |>| print("Enter $Waiting") ^

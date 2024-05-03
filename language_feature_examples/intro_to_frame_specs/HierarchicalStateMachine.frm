@@ -2,13 +2,13 @@
 
     -interface-
 
-    start @(|>>|)
-    stop @(|<<|)
+    start 
+    stop 
 
     -machine-
 
     $Begin
-        |>>| print("Starting in $Begin")
+        |start| print("Starting in $Begin")
              -> "start" $Working ^
 
     $Working => $Default
@@ -19,7 +19,7 @@
         |>| print("Enter $End") ^
 
     $Default
-        |<<| print("Stopping handled in $Default")
+        |stop| print("Stopping handled in $Default")
              -> "stop" $End ^
 
     -actions-

@@ -1,13 +1,11 @@
 #VariablesSpec
 
-    -interface-
 
-    start @(|>>|)
     
     -machine-
 
     $Start
-        |>>| -> $Working ^
+        |>| -> $Working ^
 
     $Working 
         var stateVar:String = "State Variable"
@@ -16,18 +14,18 @@
             var eventHandlerVar:String 
                         = "Event Handler Variable"
 
-            printVars(#.domainVar 
-                      $.stateVar 
+            printVars(#.domainVar, 
+                      $.stateVar,
                       ||.eventHandlerVar)
                       
-            printVars(domainVar 
-                      stateVar 
+            printVars(domainVar, 
+                      stateVar, 
                       eventHandlerVar)
             ^
 
     -actions-
 
-    printVars[domainVar:String stateVar:String eventHandlerVar:String]
+    printVars[domainVar:String, stateVar:String, eventHandlerVar:String]
 
     -domain-
 

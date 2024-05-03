@@ -2,16 +2,14 @@
 
     -interface-
 
-    start[msg:String]
+    start [msg:String]
 
     -machine-
 
     $Working
-        |start|[msg:String] 
+        |start| [msg:String] 
             print(msg) ^
 
-    -actions-
 
-    print[msg:String]
 
 ##

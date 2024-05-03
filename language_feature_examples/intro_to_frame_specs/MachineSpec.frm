@@ -1,7 +1,0 @@
-#MachineSpec 
-
-    -machine-
-
-    $Start 
-
-##

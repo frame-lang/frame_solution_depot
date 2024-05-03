@@ -12,7 +12,7 @@
                 -> "Tis True" $True ^
             :
                 -> "Twas Not" $False ^
-            :: ^
+            :| ^
 
     $True 
         |>|
