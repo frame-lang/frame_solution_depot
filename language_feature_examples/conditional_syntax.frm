@@ -76,7 +76,9 @@
     -actions-
 
     name :String {`String:|from("bob")`}
-    foo :bool {`true`}
+    foo :bool { 
+        ^(true) 
+    }
     print[msg:&String] {`
         println!("{}", &format!("{}",msg));
     `}

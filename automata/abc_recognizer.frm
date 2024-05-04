@@ -24,7 +24,7 @@ fn main {
 
     var n = 4
 
-    var machine:# = #L(#(n))
+    var machine:# = #ABC(#(n))
 
     loop var i = 0; i < n; i = i + 1 {
         print(machine.a())
@@ -45,7 +45,7 @@ fn main {
     // print(machine.c()) // uncomment to see failure
 }
 
-#L [#[n]]
+#ABC [#[n]]
 
     -interface-
 
