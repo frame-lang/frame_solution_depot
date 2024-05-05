@@ -1,0 +1,8 @@
+#HelloWorldSystem
+
+    -interface-
+
+    sayHello
+    sayWorld
+
+##
