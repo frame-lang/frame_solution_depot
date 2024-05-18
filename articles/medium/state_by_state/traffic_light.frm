@@ -1,5 +1,3 @@
-// https://docs.frame-lang.org/en/latest/advanced_frame/persistence.html#id12
-
 `import sys`
 `import time`
 `import jsonpickle`

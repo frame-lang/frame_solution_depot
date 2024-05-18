@@ -1,3 +1,24 @@
+//*******************************************************************
+//* Author            | Mark Truluck (mark@frame-lang.org)
+//* Copyright         | 2024 MIT License
+//* File Name         | mealy_machine.frm
+//* Description       | Example of a Mealy FSM.
+//*                    
+//* Revision History  :
+//* Date		 Author 			Comments
+//* ------------------------------------------------------------------
+//* 2024-May-10	 mark	            Created  
+//*******************************************************************/
+
+//-------------------------------------------------------------------------
+//
+// A machine for accepting strings with an even number of zeros.
+// 
+// Frame docs: https://docs.frame-lang.org/en/latest/
+//
+//-------------------------------------------------------------------------
+
+
 // From https://medium.com/thoughts-on-machine-learning/building-a-deterministic-state-machine-in-python-64afe794a831
 
 fn main {
