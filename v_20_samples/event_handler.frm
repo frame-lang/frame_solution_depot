@@ -1,10 +1,11 @@
-system A() {
+system Sys {
 
     machine:
 
-        $A {
-            a() : bool {  }
-            b() {  }
+        $A {  
+            >() {}
+            <() {}
+            a() {}
         }
 
 }
