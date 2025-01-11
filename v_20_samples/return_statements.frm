@@ -1,9 +1,10 @@
-fn main() {
+fn main() : int {
     var s = S()
     print(s.a(1,2))
     print(s.b())
     s.c()
     print(s.d())
+    return (1+2/3)
 }
 
 system S {
