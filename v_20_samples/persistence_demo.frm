@@ -49,22 +49,19 @@ system PersistDemo {
 
     machine:
 
-        $Start {
-            var revived_count = 0 
+    $Start {
 
-            $>() {
-                print("Started") 
-            }
+        var revived_count = 0
 
-            <$() {
-
-            }
-
-            revived() {
-                revived_count = revived_count + 1
-                print("Revived = " + str(revived_count) + " times")  
-            }
+        $>() {
+            print("Started")
         }
 
 
+        revived() {
+            revived_count = revived_count + 1
+            print("Revived = " + str(revived_count) + " times")
+        }
+
+    }
 }
